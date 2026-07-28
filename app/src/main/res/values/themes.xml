@@ -1,0 +1,20 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Base.Theme.MyCarManager" parent="Theme.Material3.DayNight.NoActionBar">
+        <!--  Customize your light theme here.  -->
+        <item name="colorPrimary">@color/Blu</item>
+        <item name="colorAccent">@color/Blu_scuro</item>
+        <item name="colorOnPrimary">@color/Bianco</item>
+        <item name="colorSecondary">@color/Blu_scuro</item>
+        <item name="colorOnSecondary">@color/Nero</item>
+        <!--  Questo cambierÃ il cursore, le checkbox e i bottoni attivati  -->
+        <item name="colorControlActivated">@color/Blu_chiaro</item>
+        <!--  Colore specifico per l'evidenziazione del testo selezionato  -->
+        <item name="android:textColorHighlight">@color/Blu_intenso</item>
+    </style>
+    <style name="WhiteSearchViewText" parent="Widget.AppCompat.SearchView">
+        <item name="android:editTextColor">#FFFFFF</item>
+        <item name="android:textColorHint">#888888</item>
+        <item name="colorControlNormal">#FFFFFF</item>
+    </style>
+    <style name="Theme.MyCarManager" parent="Base.Theme.MyCarManager"/>
+</resources>
