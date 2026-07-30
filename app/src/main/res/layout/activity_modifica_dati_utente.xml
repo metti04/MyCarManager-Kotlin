@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/clProfiloUtente"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/Bianco">
+
+    <!-- Contenitore Arrotondato (MaterialCardView) -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvModificaDatiUtente"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:cardBackgroundColor="@color/Blu_chiaro"
+        app:cardCornerRadius="40dp"
+        app:cardElevation="0dp"
+        android:layout_marginBottom="-40dp"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <!-- Il margine negativo sotto serve a "nascondere" gli angoli arrotondati inferiori -->
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/nsvModificaDatiUtente"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingBottom="40dp">
+
+            <LinearLayout
+                android:id="@+id/llModificaDatiUtente"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="24dp">
+
+                <!-- Lista dei campi come da screenshot -->
+                <!-- NOME -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilNome"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="2dp"
+                    app:boxStrokeColor="@color/Nero"
+                    app:boxCornerRadiusBottomEnd="25dp"
+                    app:boxCornerRadiusBottomStart="25dp"
+                    app:boxCornerRadiusTopEnd="25dp"
+                    app:boxCornerRadiusTopStart="25dp">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txNome"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/nome"
+                        android:textColorHint="@color/Blu_scuro" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- COGNOME -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilCognome"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="2dp"
+                    app:boxCornerRadiusBottomEnd="25dp"
+                    app:boxCornerRadiusBottomStart="25dp"
+                    app:boxCornerRadiusTopEnd="25dp"
+                    app:boxCornerRadiusTopStart="25dp">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txCognome"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/cognome" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- EMAIL -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilEmail"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="2dp"
+                    app:boxCornerRadiusBottomEnd="25dp"
+                    app:boxCornerRadiusBottomStart="25dp"
+                    app:boxCornerRadiusTopEnd="25dp"
+                    app:boxCornerRadiusTopStart="25dp">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/email" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- PASSWORD -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilPassword"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="2dp"
+                    app:boxCornerRadiusBottomEnd="25dp"
+                    app:boxCornerRadiusBottomStart="25dp"
+                    app:boxCornerRadiusTopEnd="25dp"
+                    app:boxCornerRadiusTopStart="25dp"
+                    app:passwordToggleEnabled="true">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txPassword"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/password"
+                        android:inputType="textPassword" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- DATA NASCITA -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/datanascita"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="2dp"
+                    app:boxCornerRadiusBottomEnd="25dp"
+                    app:boxCornerRadiusBottomStart="25dp"
+                    app:boxCornerRadiusTopEnd="25dp"
+                    app:boxCornerRadiusTopStart="25dp">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/data_nascita" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- USERNAME -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilUsername"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="2dp"
+                    app:boxCornerRadiusBottomEnd="25dp"
+                    app:boxCornerRadiusBottomStart="25dp"
+                    app:boxCornerRadiusTopEnd="25dp"
+                    app:boxCornerRadiusTopStart="25dp">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txUsername"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/username" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="2"
+                    android:paddingTop="25dp">
+
+                        <Button
+                            android:id="@+id/btnAnnulla"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:backgroundTint="@color/Blu_pastello"
+                            android:text="@string/annulla"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            app:cornerRadius="25dp" />
+
+                        <Button
+                            android:id="@+id/btnSalva"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginStart="8dp"
+                            android:backgroundTint="@color/Blu"
+                            android:text="@string/salva"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            app:cornerRadius="25dp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

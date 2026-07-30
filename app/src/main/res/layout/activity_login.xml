@@ -48,7 +48,7 @@
             <!-- LogIn-->
             <!-- EMAIL -->
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/email"
+                android:id="@+id/tilEmail"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -69,7 +69,7 @@
 
             <!-- PASSWORD -->
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/password"
+                android:id="@+id/tilPassword"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -81,7 +81,7 @@
                 app:passwordToggleEnabled="true">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/tbPassword"
+                    android:id="@+id/txPassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/password"

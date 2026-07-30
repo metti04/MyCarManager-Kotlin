@@ -13,4 +13,6 @@
     <string name="esci">Esci</string>
     <string name="dati">Dati</string>
     <string name="modifica">Modifica</string>
+    <string name="salva">Salva</string>
+    <string name="annulla">Annulla</string>
 </resources>
