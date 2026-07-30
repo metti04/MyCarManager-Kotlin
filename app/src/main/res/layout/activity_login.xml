@@ -95,7 +95,7 @@
                 android:text="@string/accedi"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                app:cornerRadius="30dp" />
+                app:cornerRadius="25dp" />
 
             <TextView
                 android:id="@+id/tvOpppure"
@@ -117,9 +117,10 @@
                 android:layout_marginTop="10dp"
                 android:text="@string/google_sign_in"
                 android:textAllCaps="false"
+                app:icon="@drawable/ic_google"
                 android:textColor="@color/Blu"
                 android:textSize="18sp"
-                app:cornerRadius="20dp"
+                app:cornerRadius="25dp"
                 app:strokeColor="@color/Blu"
                 app:strokeWidth="2dp" />
 
@@ -128,8 +129,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
                 android:gravity="center"
+                android:padding="8dp"
                 android:text="@string/registrati"
                 android:textColor="@color/Blu_intenso"
                 android:textStyle="bold" />

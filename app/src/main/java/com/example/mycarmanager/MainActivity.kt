@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.login) // Mostriamo il layout di login
+        setContentView(R.layout.activity_login) // Mostriamo il layout di login
         
         // Applichiamo i padding per le barre di sistema usando l'ID della root del layout login
         val rootLayout = findViewById<android.view.View>(R.id.clLogin)
