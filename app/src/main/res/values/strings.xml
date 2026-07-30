@@ -6,4 +6,8 @@
     <string name="oppure">oppure</string>
     <string name="google_sign_in">Accedi con Google</string>
     <string name="registrati">Non hai un account? Registrati</string>
+    <string name="username">Username</string>
+    <string name="data_nascita" >Data di nascita</string>
+    <string name="cognome">Cognome</string>
+    <string name="nome">Nome</string>
 </resources>
