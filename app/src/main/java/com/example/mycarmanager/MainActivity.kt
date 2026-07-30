@@ -1,63 +1,73 @@
 package com.example.mycarmanager
 
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
+import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import androidx.credentials.CredentialManager
-import androidx.credentials.GetCredentialRequest
-import com.google.android.libraries.identity.googleid.GetGoogleIdOption
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
+
+    private var isShowingLogin = true
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_login) // Mostriamo il layout di login
         
-        // Applichiamo i padding per le barre di sistema usando l'ID della root del layout login
-        val rootLayout = findViewById<android.view.View>(R.id.clLogin)
-        if (rootLayout != null) {
-            ViewCompat.setOnApplyWindowInsetsListener(rootLayout) { v, insets ->
+        // All'avvio carichiamo direttamente il layout di login
+        showLoginLayout()
+
+        // Gestione del tasto back: se siamo in registrazione, torna al login
+        onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                if (!isShowingLogin) {
+                    showLoginLayout()
+                } else {
+                    isEnabled = false
+                    onBackPressedDispatcher.onBackPressed()
+                }
+            }
+        })
+    }
+
+    private fun showLoginLayout() {
+        isShowingLogin = true
+        setContentView(R.layout.activity_login)
+
+        // Listener per passare alla registrazione
+        findViewById<TextView>(R.id.tvRegistrati)?.setOnClickListener {
+            showRegistrationLayout()
+        }
+
+//        // Altri listener del login
+//        findViewById<Button>(R.id.btnGoogle)?.setOnClickListener {
+//            Toast.makeText(this, "Google Sign In...", Toast.LENGTH_SHORT).show()
+//        }
+    }
+
+    private fun showRegistrationLayout() {
+        isShowingLogin = false
+        setContentView(R.layout.activity_registrazione)
+
+        // Listener per tornare al login
+//        findViewById<Button>(R.id.registrati)?.setOnClickListener {
+//            Toast.makeText(this, "Registrazione completata!", Toast.LENGTH_SHORT).show()
+//            showLoginLayout()
+//        }
+    }
+
+    private fun setupInsets(rootViewId: Int) {
+        val root = findViewById<android.view.View>(rootViewId)
+        if (root != null) {
+            ViewCompat.setOnApplyWindowInsetsListener(root) { v, insets ->
                 val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
                 v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
                 insets
-            }
-        }
-
-        val btnGoogle = findViewById<Button>(R.id.btnGoogle)
-        btnGoogle?.setOnClickListener {
-            onGoogleSignInClick()
-        }
-    }
-
-    private fun onGoogleSignInClick() {
-        val credentialManager = CredentialManager.create(this)
-
-        // IMPORTANTE: Dovrai sostituire "YOUR_WEB_CLIENT_ID" con il tuo Client ID reale 
-        // ottenuto dalla Google Cloud Console (Tipo: Applicazione Web)
-        val googleIdOption = GetGoogleIdOption.Builder()
-            .setFilterByAuthorizedAccounts(false)
-            .setServerClientId("YOUR_WEB_CLIENT_ID")
-            .build()
-
-        val request = GetCredentialRequest.Builder()
-            .addCredentialOption(googleIdOption)
-            .build()
-
-        CoroutineScope(Dispatchers.Main).launch {
-            try {
-                val result = credentialManager.getCredential(this@MainActivity, request)
-                // Qui puoi gestire il successo dell'autenticazione
-                Toast.makeText(this@MainActivity, "Accesso riuscito!", Toast.LENGTH_SHORT).show()
-            } catch (e: Exception) {
-                e.printStackTrace()
-                Toast.makeText(this@MainActivity, "Errore durante l'accesso: ${e.message}", Toast.LENGTH_LONG).show()
             }
         }
     }
