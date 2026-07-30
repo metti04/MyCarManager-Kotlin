@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/clLogin"
+    android:id="@+id/clProfiloUtente"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/Blu">
@@ -27,7 +27,8 @@
     </LinearLayout>
 
     <!-- Contenitore Bianco Arrotondato (MaterialCardView) -->
-    <com.google.android.material.card.MaterialCardView
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvLogin"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:cardBackgroundColor="@color/Bianco"
@@ -98,7 +99,7 @@
                 app:cornerRadius="25dp" />
 
             <TextView
-                android:id="@+id/tvOpppure"
+                android:id="@+id/tvUsernameUtente"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -138,6 +139,6 @@
 
         </LinearLayout>
 
-    </com.google.android.material.card.MaterialCardView>
+    </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
