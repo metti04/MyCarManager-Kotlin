@@ -87,7 +87,7 @@
         android:id="@+id/rvVeicoli"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        tools:listitem="@layout/item_le_tue_auto"
+        tools:listitem="@layout/item_auto"
         app:layout_constraintTop_toBottomOf="@id/tvEsempio"
         app:layout_constraintBottom_toTopOf="@id/bottom_nav" />
     <include
