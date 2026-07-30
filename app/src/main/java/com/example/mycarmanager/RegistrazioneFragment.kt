@@ -27,11 +27,11 @@ class RegistrazioneFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         // Listener per tornare al login tramite TextView
-        view.findViewById<TextView>(R.id.Accedi)?.setOnClickListener {
+        view.findViewById<TextView>(R.id.txAccedi)?.setOnClickListener {
             parentFragmentManager.popBackStack()
         }
 
-        view.findViewById<Button>(R.id.registrati)?.setOnClickListener {
+        view.findViewById<Button>(R.id.txregistrati)?.setOnClickListener {
             Toast.makeText(requireContext(), "Registrazione completata!", Toast.LENGTH_SHORT).show()
             parentFragmentManager.popBackStack() // Torna al login
         }

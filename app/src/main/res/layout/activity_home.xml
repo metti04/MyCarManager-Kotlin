@@ -34,7 +34,7 @@
 
     <!-- 2. CARD BIANCA SOVRAPPOSTA (Spostiamo qui il LinearLayout) -->
     <androidx.cardview.widget.CardView
-        android:id="@+id/stats_card"
+        android:id="@+id/cvSpeseScadenze"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="24dp"
@@ -90,9 +90,9 @@
         android:layout_height="0dp"
         tools:listitem="@layout/item_auto"
         app:layout_constraintTop_toBottomOf="@id/tvEsempio"
-        app:layout_constraintBottom_toTopOf="@id/bottom_nav" />
+        app:layout_constraintBottom_toTopOf="@id/nb" />
     <include
-        android:id="@+id/bottom_nav"
+        android:id="@+id/nb"
         layout="@layout/item_nav_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
