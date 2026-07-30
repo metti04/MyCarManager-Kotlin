@@ -1,6 +1,8 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <style name="Base.Theme.MyCarManager" parent="Theme.Material3.DayNight.NoActionBar">
         <!--  Customize your light theme here.  -->
+        <item name="android:statusBarColor">@color/Blu</item>
+        <item name="android:windowLightStatusBar">false</item>
         <item name="colorPrimary">@color/Blu</item>
         <item name="colorAccent">@color/Blu_scuro</item>
         <item name="colorOnPrimary">@color/Bianco</item>
