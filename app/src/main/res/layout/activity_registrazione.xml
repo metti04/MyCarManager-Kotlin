@@ -180,6 +180,7 @@
                     android:id="@+id/textView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textAlignment="center"
                     android:text="Hai gia un account? Accedi" />
 
             </LinearLayout>
