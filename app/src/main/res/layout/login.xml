@@ -82,7 +82,7 @@
                     android:id="@+id/tbPassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Password"
+                    android:hint="@string/password"
                     android:inputType="textPassword" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -92,7 +92,7 @@
                 android:layout_height="60dp"
                 android:layout_marginTop="20dp"
                 android:backgroundTint="@color/Blu"
-                android:text="Accedi"
+                android:text="@string/accedi"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 app:cornerRadius="30dp" />
@@ -104,15 +104,24 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
                 android:gravity="center"
-                android:text="oppure"
+                android:text="@string/oppure"
                 android:textColor="@color/Blu_intenso"
                 android:textStyle="bold" />
 
 
-            <com.google.android.gms.common.SignInButton
-                android:id="@+id/sign_in_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnGoogle"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/google_sign_in"
+                android:textAllCaps="false"
+                android:textColor="@color/Blu"
+                android:textSize="18sp"
+                app:cornerRadius="20dp"
+                app:strokeColor="@color/Blu"
+                app:strokeWidth="2dp" />
 
             <TextView
                 android:id="@+id/tvRegistrati"
@@ -121,7 +130,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
                 android:gravity="center"
-                android:text="Non ha un account? Registrati"
+                android:text="@string/registrati"
                 android:textColor="@color/Blu_intenso"
                 android:textStyle="bold" />
 

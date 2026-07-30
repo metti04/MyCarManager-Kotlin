@@ -1,0 +1,11 @@
+- [x] Configurazione Dipendenze
+    - [x] Aggiornare `libs.versions.toml` con Credential Manager e GoogleID
+    - [x] Aggiornare `app/build.gradle.kts`
+- [x] Risorse e UI
+    - [x] Aggiungere stringhe per il login Google
+    - [x] Migliorare il layout del pulsante Google in `login.xml`
+- [x] Logica di Autenticazione
+    - [x] Preparare `MainActivity.kt` per il Credential Manager
+- [x] Verifica finale
+    - [x] Sincronizzazione Gradle
+    - [x] Build di test

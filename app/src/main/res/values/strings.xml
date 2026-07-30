@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">MyCarManager</string>
     <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="accedi">Accedi</string>
+    <string name="oppure">oppure</string>
+    <string name="google_sign_in">Accedi con Google</string>
+    <string name="registrati">Non hai un account? Registrati</string>
 </resources>
