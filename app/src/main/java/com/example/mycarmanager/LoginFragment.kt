@@ -7,8 +7,6 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import androidx.credentials.CredentialManager
 import androidx.credentials.GetCredentialRequest
@@ -30,23 +28,20 @@ class LoginFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Applichiamo i padding per le barre di sistema
-//        val layout = view.findViewById<View>(R.id.clLogin)
-//        if (layout != null) {
-//            ViewCompat.setOnApplyWindowInsetsListener(layout) { v, insets ->
-//                val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-//                v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-//                insets
-//            }
-//        }
-
         view.findViewById<Button>(R.id.btnGoogle)?.setOnClickListener {
             onGoogleSignInClick()
         }
 
+        view.findViewById<Button>(R.id.btnAccedi)?.setOnClickListener {
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, HomeFragment())
+                .addToBackStack(null)
+                .commit()
+        }
+
         view.findViewById<TextView>(R.id.tvRegistrati)?.setOnClickListener {
             parentFragmentManager.beginTransaction()
-                .replace(R.id.clregistrazione, RegistrazioneFragment())
+                .replace(R.id.fragment_container, RegistrazioneFragment())
                 .addToBackStack(null)
                 .commit()
         }
@@ -68,7 +63,6 @@ class LoginFragment : Fragment() {
             try {
                 val result = credentialManager.getCredential(requireActivity(), request)
                 Toast.makeText(requireContext(), "Accesso riuscito!", Toast.LENGTH_SHORT).show()
-                // Qui potresti mostrare la bottom bar nel MainActivity
             } catch (e: Exception) {
                 e.printStackTrace()
                 Toast.makeText(requireContext(), "Errore: ${e.message}", Toast.LENGTH_LONG).show()

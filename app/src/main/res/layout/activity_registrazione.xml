@@ -21,11 +21,11 @@
             android:layout_width="178dp"
             android:layout_height="109dp"
             android:adjustViewBounds="true"
-            android:src="@drawable/iconaloginregistrazione" /> <!-- Sostituisci con la tua auto -->
+            android:src="@drawable/iconaloginregistrazione" />
+
 
     </LinearLayout>
 
-    <!-- Contenitore Bianco Arrotondato (MaterialCardView) -->
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -36,7 +36,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/header">
 
-        <!-- Il margine negativo sotto serve a "nascondere" gli angoli arrotondati inferiori -->
 
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
@@ -58,15 +57,15 @@
                     android:layout_marginBottom="20dp"
                     android:textStyle="bold" />
 
-                <!-- Lista dei campi come da screenshot -->
-                <!-- NOME -->
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/nome"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="2dp"
-                    app:boxStrokeColor="@color/Nero"
+                    android:textColorHint="@color/Blu"
+                    app:boxStrokeColor="@color/Blu"
+                    app:hintTextColor="@color/Blu"
                     app:boxCornerRadiusBottomEnd="25dp"
                     app:boxCornerRadiusBottomStart="25dp"
                     app:boxCornerRadiusTopEnd="25dp"
@@ -75,16 +74,19 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/nome"
-                        android:textColorHint="@color/Blu_scuro" />
+                        android:textColor="@color/Blu"
+                        android:textColorHint="@color/Blu" />
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <!-- COGNOME -->
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/cognome"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="2dp"
+                    android:textColorHint="@color/Blu"
+                    app:boxStrokeColor="@color/Blu"
+                    app:hintTextColor="@color/Blu"
                     app:boxCornerRadiusBottomEnd="25dp"
                     app:boxCornerRadiusBottomStart="25dp"
                     app:boxCornerRadiusTopEnd="25dp"
@@ -92,16 +94,20 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/Blu"
+                        android:textColorHint="@color/Blu"
                         android:hint="@string/cognome" />
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <!-- EMAIL -->
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/email"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="2dp"
+                    android:textColorHint="@color/Blu"
+                    app:boxStrokeColor="@color/Blu"
+                    app:hintTextColor="@color/Blu"
                     app:boxCornerRadiusBottomEnd="25dp"
                     app:boxCornerRadiusBottomStart="25dp"
                     app:boxCornerRadiusTopEnd="25dp"
@@ -109,16 +115,21 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/Blu"
+                        android:textColorHint="@color/Blu"
                         android:hint="@string/email" />
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <!-- PASSWORD -->
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/password"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="2dp"
+                    android:textColorHint="@color/Blu"
+                    app:boxStrokeColor="@color/Blu"
+                    app:hintTextColor="@color/Blu"
+                    app:passwordToggleTint="@color/Blu"
                     app:boxCornerRadiusBottomEnd="25dp"
                     app:boxCornerRadiusBottomStart="25dp"
                     app:boxCornerRadiusTopEnd="25dp"
@@ -127,34 +138,49 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/Blu"
+                        android:textColorHint="@color/Blu"
                         android:hint="@string/password"
                         android:inputType="textPassword" />
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <!-- DATA NASCITA -->
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/datanascita"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="2dp"
+                    android:textColorHint="@color/Blu"
+                    app:boxStrokeColor="@color/Blu"
+                    app:hintTextColor="@color/Blu"
                     app:boxCornerRadiusBottomEnd="25dp"
                     app:boxCornerRadiusBottomStart="25dp"
                     app:boxCornerRadiusTopEnd="25dp"
                     app:boxCornerRadiusTopStart="25dp">
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etDataNascita"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="@string/data_nascita" />
+                        android:textColor="@color/Blu"
+                        android:textColorHint="@color/Blu"
+                        android:hint="@string/data_nascita"
+                        android:focusable="false"
+                        android:clickable="true"
+                        android:inputType="none" />
+
+
+
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <!-- USERNAME -->
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/username"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="2dp"
+                    android:textColorHint="@color/Blu"
+                    app:boxStrokeColor="@color/Blu"
+                    app:hintTextColor="@color/Blu"
                     app:boxCornerRadiusBottomEnd="25dp"
                     app:boxCornerRadiusBottomStart="25dp"
                     app:boxCornerRadiusTopEnd="25dp"
@@ -162,6 +188,8 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/Blu"
+                        android:textColorHint="@color/Blu"
                         android:hint="@string/username" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -177,11 +205,13 @@
                     app:cornerRadius="25dp" />
 
                 <TextView
-                    android:id="@+id/textView"
+                    android:id="@+id/Accedi"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textAlignment="center"
-                    android:text="Hai gia un account? Accedi" />
+                    android:text="Hai gia un account? Accedi"
+                    android:textColor="@color/Blu_intenso"
+                    android:textStyle="bold"/>
 
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>

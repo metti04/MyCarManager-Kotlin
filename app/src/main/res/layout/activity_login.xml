@@ -10,7 +10,7 @@
 
     <!-- Header con Logo -->
     <LinearLayout
-        android:id="@+id/header"
+        android:id="@+id/llheader"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -35,7 +35,7 @@
         app:cardBackgroundColor="@color/Bianco"
         app:cardCornerRadius="40dp"
         app:cardElevation="0dp"
-        app:layout_constraintTop_toBottomOf="@id/header">
+        app:layout_constraintTop_toBottomOf="@id/llheader">
 
 
         <LinearLayout
@@ -54,17 +54,22 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="2dp"
                 android:textColorHint="@color/Blu"
+                app:boxStrokeColor="@color/Blu"
+                app:hintTextColor="@color/Blu"
                 app:boxCornerRadiusBottomEnd="25dp"
                 app:boxCornerRadiusBottomStart="25dp"
                 app:boxCornerRadiusTopEnd="25dp"
-                app:boxCornerRadiusTopStart="25dp"
-                app:hintEnabled="false">
+                app:boxCornerRadiusTopStart="25dp">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/txEmail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/email" />
+                    android:hint="@string/email"
+                    android:textColor="@color/Blu"
+                    android:textColorHint="@color/Blu"
+                    />
+
             </com.google.android.material.textfield.TextInputLayout>
 
             <!-- PASSWORD -->
@@ -74,6 +79,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="2dp"
+                android:textColorHint="@color/Blu"
+                app:boxStrokeColor="@color/Blu"
+                app:hintTextColor="@color/Blu"
+                app:passwordToggleTint="@color/Blu"
                 app:boxCornerRadiusBottomEnd="25dp"
                 app:boxCornerRadiusBottomStart="25dp"
                 app:boxCornerRadiusTopEnd="25dp"
@@ -85,6 +94,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/password"
+                    android:textColor="@color/Blu"
+                    android:textColorHint="@color/Blu"
                     android:inputType="textPassword" />
             </com.google.android.material.textfield.TextInputLayout>
 
