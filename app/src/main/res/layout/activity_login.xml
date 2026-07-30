@@ -5,7 +5,8 @@
     android:id="@+id/clProfiloUtente"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/Blu">
+    android:background="@color/Blu"
+    >
 
     <!-- Header con Logo -->
     <LinearLayout
