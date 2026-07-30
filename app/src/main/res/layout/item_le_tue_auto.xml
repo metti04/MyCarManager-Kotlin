@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="16dp"
+    android:layout_marginVertical="8dp"
+    app:cardBackgroundColor="@color/Azzuro_chiaro"
+    app:cardCornerRadius="40dp"
+    android:id="@+id/le_tue_auto"
+    >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp">
+
+        <!-- Immagine dell'Auto (Bianca su fondo bianco come in foto) -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvImmagineAuto"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/ivAuto"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="8dp"
+                android:src="TUA FOTO"
+                 />
+        </androidx.cardview.widget.CardView>
+
+        <!-- Sezione Testi -->
+        <TextView
+            android:id="@+id/tvNomeAuto"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:text="Fiat Panda"
+            android:textColor="@color/Nero"
+            android:textSize="24dp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@id/cvImmagineAuto" />
+
+        <TextView
+            android:id="@+id/tvTargaAuto"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="AB123CD"
+            android:textColor="#555555"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/tvNomeAuto"
+            app:layout_constraintTop_toBottomOf="@id/tvNomeAuto" />
+
+        <TextView
+            android:id="@+id/tvStatoAuto"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Attiva"
+            android:textColor="@color/Verde"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/tvNomeAuto"
+            app:layout_constraintTop_toBottomOf="@id/tvTargaAuto" />
+
+        <!-- Icona Sveglia/Scadenza -->
+        <ImageView
+            android:id="@+id/ivIconaSveglia"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_marginTop="8dp"
+            android:src="@android:drawable/ic_lock_idle_alarm"
+            app:layout_constraintStart_toStartOf="@id/tvNomeAuto"
+            app:layout_constraintTop_toBottomOf="@id/tvStatoAuto"
+            app:tint="@color/Verde" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
