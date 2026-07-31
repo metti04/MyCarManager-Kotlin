@@ -33,7 +33,7 @@
             <ImageView
                 android:layout_width="34dp"
                 android:layout_height="28dp"
-                android:src="@android:drawable/ic_menu_directions"
+                android:src="@drawable/ic_auto"
                 app:tint="@color/Bianco" />
             <TextView
                 android:layout_width="wrap_content"
@@ -57,7 +57,7 @@
             <ImageView
                 android:layout_width="28dp"
                 android:layout_height="28dp"
-                android:src="@android:drawable/ic_menu_save"
+                android:src="@drawable/ic_spese"
                 app:tint="@color/Bianco" />
             <TextView
                 android:layout_width="wrap_content"
@@ -80,7 +80,7 @@
             <ImageView
                 android:layout_width="28dp"
                 android:layout_height="28dp"
-                android:src="@android:drawable/ic_menu_save"
+                android:src="@drawable/ic_scadenze"
                 app:tint="@color/Bianco" />
             <TextView
                 android:layout_width="wrap_content"
@@ -102,7 +102,7 @@
             <ImageView
                 android:layout_width="28dp"
                 android:layout_height="28dp"
-                android:src="@android:drawable/ic_menu_save"
+                android:src="@drawable/ic_profilo"
                 app:tint="@color/Bianco" />
             <TextView
                 android:layout_width="wrap_content"
