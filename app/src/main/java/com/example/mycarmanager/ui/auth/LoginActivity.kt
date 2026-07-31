@@ -12,7 +12,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.credentials.CredentialManager
 import androidx.credentials.GetCredentialRequest
 import com.example.mycarmanager.R
-import com.example.mycarmanager.ui.home.HomeActivity
+import com.example.mycarmanager.ui.home.HomeFragment
 import com.google.android.libraries.identity.googleid.GetGoogleIdOption
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -36,7 +36,7 @@ class LoginActivity : AppCompatActivity() {
         }
 
         findViewById<Button>(R.id.btnAccedi)?.setOnClickListener {
-            val intent = Intent(this, HomeActivity::class.java)
+            val intent = Intent(this, HomeFragment::class.java)
             startActivity(intent)
             finish()
         }
@@ -63,7 +63,7 @@ class LoginActivity : AppCompatActivity() {
             try {
                 val result = credentialManager.getCredential(this@LoginActivity, request)
                 Toast.makeText(this@LoginActivity, "Accesso riuscito!", Toast.LENGTH_SHORT).show()
-                val intent = Intent(this@LoginActivity, HomeActivity::class.java)
+                val intent = Intent(this@LoginActivity, HomeFragment::class.java)
                 startActivity(intent)
                 finish()
             } catch (e: Exception) {

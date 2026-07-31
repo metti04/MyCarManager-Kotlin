@@ -10,9 +10,7 @@
     <include
         android:id="@+id/header"
         layout="@layout/item_scansione"
-
         app:layout_constraintTop_toTopOf="parent"
-
         />
 
     <!-- Form scrollabile -->
@@ -141,10 +139,6 @@
                     android:hint="Immatricolazione"
                     android:textColor="@color/Blu" />
             </com.google.android.material.textfield.TextInputLayout>
-
-            <!-- Altri campi (Marca, Modello, Cilindrata, KM, Immatricolazione)... -->
-            <!-- [Ripeti la struttura sopra per ogni campo richiesto] -->
-
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
@@ -189,7 +183,7 @@
     <!-- Navigation Bar -->
     <include
         android:id="@+id/nav_bar"
-        layout="@layout/item_nav_bar"
+        layout="@layout/activity_main"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent" />

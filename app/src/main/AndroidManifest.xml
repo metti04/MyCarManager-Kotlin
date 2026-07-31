@@ -28,7 +28,7 @@
             android:windowSoftInputMode="adjustResize" />
 
         <activity
-            android:name=".ui.home.HomeActivity"
+            android:name=".ui.home.HomeFragment"
             android:exported="false" />
 
     </application>
