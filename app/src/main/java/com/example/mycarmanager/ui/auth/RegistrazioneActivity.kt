@@ -1,42 +1,43 @@
-package com.example.mycarmanager
+package com.example.mycarmanager.ui.auth
 
 import android.app.DatePickerDialog
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
-import androidx.fragment.app.Fragment
+import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import com.example.mycarmanager.R
 import com.google.android.material.textfield.TextInputEditText
 import java.text.SimpleDateFormat
 import java.util.*
 
-class RegistrazioneFragment : Fragment() {
+class RegistrazioneActivity : AppCompatActivity() {
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.activity_registrazione, container, false)
-    }
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
+        setContentView(R.layout.activity_registrazione)
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.clregistrazione)) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
+        }
 
         // Listener per tornare al login tramite TextView
-        view.findViewById<TextView>(R.id.txAccedi)?.setOnClickListener {
-            parentFragmentManager.popBackStack()
+        findViewById<TextView>(R.id.txAccedi)?.setOnClickListener {
+            finish() // Chiude l'activity e torna alla precedente (Login)
         }
 
-        view.findViewById<Button>(R.id.txregistrati)?.setOnClickListener {
-            Toast.makeText(requireContext(), "Registrazione completata!", Toast.LENGTH_SHORT).show()
-            parentFragmentManager.popBackStack() // Torna al login
+        findViewById<Button>(R.id.txregistrati)?.setOnClickListener {
+            Toast.makeText(this, "Registrazione completata!", Toast.LENGTH_SHORT).show()
+            finish()
         }
 
-        val etData = view.findViewById<TextInputEditText>(R.id.etDataNascita)
+        val etData = findViewById<TextInputEditText>(R.id.etDataNascita)
         etData?.setOnClickListener {
             showDatePicker(etData)
         }
@@ -49,7 +50,7 @@ class RegistrazioneFragment : Fragment() {
         val day = calendar.get(Calendar.DAY_OF_MONTH)
 
         val datePickerDialog = DatePickerDialog(
-            requireContext(),
+            this,
             { _, selectedYear, selectedMonth, selectedDay ->
                 val selectedDate = Calendar.getInstance()
                 selectedDate.set(selectedYear, selectedMonth, selectedDay)

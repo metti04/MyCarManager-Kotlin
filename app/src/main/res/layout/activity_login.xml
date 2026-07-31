@@ -35,15 +35,22 @@
         app:cardBackgroundColor="@color/Bianco"
         app:cardCornerRadius="40dp"
         app:cardElevation="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/llheader">
 
 
-        <LinearLayout
-            android:id="@+id/llLogin"
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="24dp">
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            android:isScrollContainer="true">
+
+            <LinearLayout
+                android:id="@+id/llLogin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="24dp">
 
             <!-- LogIn-->
             <!-- EMAIL -->
@@ -150,7 +157,7 @@
                 android:textStyle="bold" />
 
         </LinearLayout>
-
+        </androidx.core.widget.NestedScrollView>
     </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
