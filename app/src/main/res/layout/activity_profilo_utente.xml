@@ -10,9 +10,7 @@
     <!--includo l'header-->
     <include
         android:id="@+id/headerProfiloUtente"
-        layout="@layout/item_headerblu"
-        android:layout_width="match_parent"
-        android:layout_height=""/>
+        layout="@layout/item_headerblu" />
 
 
 
