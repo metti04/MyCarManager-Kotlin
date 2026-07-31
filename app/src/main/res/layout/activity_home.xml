@@ -79,6 +79,7 @@
         android:layout_marginStart="24dp"
         android:text="I tuoi veicoli"
         android:textColor="@color/Nero"
+        android:paddingTop="10dp"
         android:textSize="20dp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"

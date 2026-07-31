@@ -10,10 +10,13 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContentView(R.layout.activity_main)
 
-        // Imposta i padding per le barre di sistema sul container principale
+        // Attiva la modalità edge-to-edge per far arrivare i colori fino ai bordi dello schermo
+        enableEdgeToEdge()
+
+        setContentView(R.layout.activity_login)
+
+        /*// Imposta i padding per le barre di sistema sul container principale
         val container = findViewById<android.view.View>(R.id.fragment_container)
         if (container != null) {
             ViewCompat.setOnApplyWindowInsetsListener(container) { v, insets ->
@@ -28,6 +31,6 @@ class MainActivity : AppCompatActivity() {
             supportFragmentManager.beginTransaction()
                 .replace(R.id.fragment_container, LoginFragment())
                 .commit()
-        }
+        }*/
     }
 }
