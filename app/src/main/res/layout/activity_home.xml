@@ -60,7 +60,7 @@
             <View
                 android:layout_width="1dp"
                 android:layout_height="40dp"
-                android:background="#CCCCCC" />
+                android:background="@color/Grigino" />
 
             <TextView
                 android:layout_width="0dp"
@@ -77,7 +77,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:text="I tuoi veicoli"
+        android:text="@string/i_tuoi_veicoli"
         android:textColor="@color/Nero"
         android:paddingTop="10dp"
         android:textSize="20dp"

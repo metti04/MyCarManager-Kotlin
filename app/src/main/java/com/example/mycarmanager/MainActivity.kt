@@ -11,7 +11,6 @@ import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import com.example.mycarmanager.databinding.ActivityMainBinding
-import com.example.mycarmanager.ui.home.HomeFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -25,8 +24,8 @@ class MainActivity : AppCompatActivity() {
 
         // Effettua l'inflate del binding
         binding = ActivityMainBinding.inflate(layoutInflater)
-        //setContentView(binding.root)
-        setContentView(R.layout.activity_login)
+        setContentView(binding.root)
+        //setContentView(R.layout.activity_login)
 
         // Gestione degli insets per la navbar di sistema
         ViewCompat.setOnApplyWindowInsetsListener(binding.root) { v, insets ->
@@ -75,14 +74,14 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun replaceFragment(fragment: Fragment, tag: String) {
+    /*private fun replaceFragment(fragment: Fragment, tag: String) {
         val currentFragment = supportFragmentManager.findFragmentByTag(tag)
         if (currentFragment != null && currentFragment.isVisible) return
 
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragment_container, fragment, tag)
             .commit()
-    }
+    }*/
 
     private fun updateNavbarUI(selectedTag: String) {
         val darkBlue = ContextCompat.getColor(this, R.color.Blu_scuro)
