@@ -63,7 +63,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.llscadenze.setOnClickListener {
             // Sostituisci con il tuo fragment per le Scadenze
-           // replaceFragment(ScadenzeFragment(), "SCADENZE")
+           //replaceFragment(ScadenzeFragment(), "SCADENZE")
             updateNavbarUI("SCADENZE")
         }
 

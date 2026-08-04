@@ -35,7 +35,7 @@
             android:windowSoftInputMode="adjustResize" />
 
         <activity
-            android:name=".ui.home.HomeActivity"
+            android:name=".ui.home.HomeActivityViewModel"
             android:exported="false" />
 
     </application>

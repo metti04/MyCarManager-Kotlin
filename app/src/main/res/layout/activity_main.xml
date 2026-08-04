@@ -14,7 +14,6 @@
         app:layout_constraintTop_toTopOf="parent" />
 
 
-        <!-- Il contenuto viene allineato in basso per compensare lo spostamento -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="80dp"
@@ -24,7 +23,6 @@
             android:background="@color/Blu"
             app:layout_constraintBottom_toBottomOf="parent">
 
-            <!-- ITEM: GARAGE -->
             <LinearLayout
                 android:id="@+id/llgarage"
                 android:layout_width="0dp"
@@ -50,7 +48,6 @@
                     android:textStyle="bold" />
             </LinearLayout>
 
-            <!-- ITEM: SPESE (copia lo stesso blocco per gli altri) -->
             <LinearLayout
                 android:id="@+id/llspese"
                 android:layout_width="0dp"
