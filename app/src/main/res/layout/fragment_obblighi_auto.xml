@@ -8,16 +8,16 @@
     android:background="@color/Blu_chiaro2">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvLavori"
+        android:id="@+id/rvObblighi"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:clipToPadding="false"
         android:paddingTop="8dp"
         android:paddingBottom="80dp"
-        tools:listitem="@layout/item_lavoro_fragment" />
+        tools:listitem="@layout/item_obbligo_fragment" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabAddLavoro"
+        android:id="@+id/fabAddObbligo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="24dp"
@@ -26,6 +26,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:tint="@color/Blu"
-        android:contentDescription="Aggiungi Lavoro" />
+        android:contentDescription="Aggiungi Obbligo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -16,7 +16,7 @@
         android:orientation="vertical"
         android:padding="16dp">
 
-        <!-- PARTE SUPERIORE (Sempre visibile) -->
+        <!-- PARTE SEMPRE VISIBILE -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -33,92 +33,91 @@
                     android:layout_width="32dp"
                     android:layout_height="32dp"
                     android:layout_gravity="center"
-                    android:src="@drawable/ic_lavoro"
+                    android:src="@drawable/ic_obbligo"
                     app:tint="@color/Blu"/>
             </androidx.cardview.widget.CardView>
 
             <TextView
-                android:id="@+id/tvTitoloLavoro"
+                android:id="@+id/tvTitoloObbligo"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_marginStart="16dp"
-                android:text="Tagliando"
+                android:text="Bollo auto"
                 android:textColor="@color/Nero"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
-            <LinearLayout
+            <TextView
+                android:id="@+id/tvCostoObbligo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:gravity="end">
-                <TextView
-                    android:id="@+id/tvCostoLavoro"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="205,85€"
-                    android:textColor="@color/Blu"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-                <TextView
-                    android:id="@+id/tvDataLavoro"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="25/06/2026"
-                    android:textColor="@color/Nero"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
+                android:text="600,01 €"
+                android:textColor="@color/Blu"
+                android:textSize="18sp"
+                android:textStyle="bold" />
         </LinearLayout>
 
-        <!-- SEZIONE ESPANDIBILE (Dettagli) -->
         <LinearLayout
-            android:id="@+id/llDettagliEspansi"
+            android:id="@+id/llDettagliObbligo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:visibility="gone"
             tools:visibility="visible"
-            android:layout_marginTop="12dp">
+            android:layout_marginTop="16dp">
 
-            <TextView
-                android:id="@+id/tvKmLavoro"
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Data pagamento"
+                    android:textColor="@color/Nero"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/tvDataPagamentoObbligo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:text="16/09/2026"
+                    android:textColor="@color/Nero"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="250.000 Km"
-                android:textColor="@color/Nero"
-                android:textSize="14sp"
-                android:textStyle="bold"
-                android:gravity="end" />
-
-            <TextView
-                android:id="@+id/tvTipoLavoro"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Lavoro Non ordinario"
-                android:textColor="@color/Nero"
-                android:textSize="15sp"
-                android:textStyle="bold"
-                android:layout_marginTop="8dp"/>
-
-            <TextView
-                android:id="@+id/tvDescrizioneLavoro"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Descrizione del lavoro svolto..."
-                android:textColor="@color/Nero"
-                android:textSize="14sp"
-                android:layout_marginTop="4dp"/>
+                android:layout_marginTop="8dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Scadenza"
+                    android:textColor="@color/Nero"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/tvScadenzaObbligo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:text="16/03/2027"
+                    android:textColor="@color/Nero"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
 
             <ImageView
-                android:id="@+id/ivEditLavoro"
+                android:id="@+id/ivEditObbligo"
                 android:layout_width="36dp"
                 android:layout_height="36dp"
                 android:layout_gravity="end"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="12dp"
                 android:padding="8dp"
-                android:src="@drawable/ic_modifica"
+                android:src="@drawable/ic_profilo"
                 app:tint="@color/Blu" />
         </LinearLayout>
     </LinearLayout>
