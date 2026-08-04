@@ -16,4 +16,6 @@
     <string name="salva">Salva</string>
     <string name="annulla">Annulla</string>
     <string name="i_tuoi_veicoli">I tuoi veicoli</string>
+    <string name="costo">Costo</string>
+    <string name="chilometraggio">Chilometraggio</string>
 </resources>
