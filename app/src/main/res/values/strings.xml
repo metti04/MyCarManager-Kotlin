@@ -33,4 +33,6 @@
     <string name="documento">Documento</string>
     <string name="scadute">Scadute</string>
     <string name="imminenti">imminenti</string>
+    <string name="data_pagamento">Data Pagamento</string>
+    <string name="data_scadenza">Data Scadenza</string>
 </resources>

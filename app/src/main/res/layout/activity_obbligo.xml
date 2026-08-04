@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/Blu_chiaro2"
+    android:layout_marginTop="-40dp">
+
+    <include
+        android:id="@+id/header"
+        layout="@layout/item_scansione"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <!-- Form scrollabile -->
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nsCampiLavoro"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        android:isScrollContainer="true"
+        app:layout_constraintTop_toBottomOf="@id/header"
+        app:layout_constraintBottom_toTopOf="@id/llButtons">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <!-- Nome -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilNome"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="2dp"
+                android:textColorHint="@color/Blu"
+                app:boxStrokeColor="@color/Blu"
+                app:hintTextColor="@color/Blu"
+                app:boxCornerRadiusBottomEnd="25dp"
+                app:boxCornerRadiusBottomStart="25dp"
+                app:boxCornerRadiusTopEnd="25dp"
+                app:boxCornerRadiusTopStart="25dp">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/txNome"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/nome"
+                    android:textColor="@color/Blu"
+                    android:textColorHint="@color/Blu" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- comboBox e data-->
+
+
+            <!-- Data Pagamento -->
+            <!-- Container for Text Box + Button + Expandable Calendar -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <!-- Date Input Field -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilSelectedDate"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="2dp"
+                    android:textColorHint="@color/Blu"
+                    app:boxStrokeColor="@color/Blu"
+                    app:hintTextColor="@color/Blu"
+                    app:boxCornerRadiusBottomEnd="25dp"
+                    app:boxCornerRadiusBottomStart="25dp"
+                    app:boxCornerRadiusTopEnd="25dp"
+                    app:boxCornerRadiusTopStart="25dp"
+
+                    tools:ignore="MissingConstraints">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txSelectedDate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clickable="false"
+                        android:focusable="false"
+                        android:hint="@string/data_pagamento"
+                        android:textColor="@color/Blu"
+                        android:textColorHint="@color/Blu" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Calendar Toggle Button -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnToggleCalendar"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:padding="18dp"
+                    app:cornerRadius="10dp"
+                    app:icon="@android:drawable/ic_menu_my_calendar"
+                    app:iconPadding="18dp"
+                    app:iconTint="@color/Blu"
+                    app:strokeColor="@color/Blu"
+                    app:layout_constraintBottom_toBottomOf="@id/tilSelectedDate"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/tilSelectedDate" />
+
+                <!-- Expandable Sublayout containing CalendarView -->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/calendarContainer"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tilSelectedDate">
+
+                    <CalendarView
+                        android:id="@+id/calendarView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!-- Data Scadenza -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilDataScadenza"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="2dp"
+                android:textColorHint="@color/Blu"
+                app:boxStrokeColor="@color/Blu"
+                app:hintTextColor="@color/Blu"
+                app:boxCornerRadiusBottomEnd="25dp"
+                app:boxCornerRadiusBottomStart="25dp"
+                app:boxCornerRadiusTopEnd="25dp"
+                app:boxCornerRadiusTopStart="25dp">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/txDataScadenza"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/data_scadenza"
+                    android:textColor="@color/Blu"
+                    android:textColorHint="@color/Blu" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Costo -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilCosto"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="2dp"
+                android:textColorHint="@color/Blu"
+                app:boxStrokeColor="@color/Blu"
+                app:hintTextColor="@color/Blu"
+                app:boxCornerRadiusBottomEnd="25dp"
+                app:boxCornerRadiusBottomStart="25dp"
+                app:boxCornerRadiusTopEnd="25dp"
+                app:boxCornerRadiusTopStart="25dp">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/txCosto"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/costo"
+                    android:textColor="@color/Blu"
+                    android:textColorHint="@color/Blu" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- Pulsanti Azione -->
+    <LinearLayout
+        android:id="@+id/llButtons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        android:padding="20dp"
+        app:layout_constraintBottom_toTopOf="@id/nav_bar">
+
+        <Button
+            android:id="@+id/btnAnnulla"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            android:layout_marginEnd="10dp"
+            android:backgroundTint="@color/Blu_pastello"
+            android:text="Annulla"
+            android:textAllCaps="false"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:cornerRadius="30dp" />
+
+        <Button
+            android:id="@+id/btnSalva"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            android:layout_marginStart="10dp"
+            android:backgroundTint="@color/Blu"
+            android:text="Salva"
+            android:textAllCaps="false"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:cornerRadius="30dp" />
+
+    </LinearLayout>
+
+    <!-- Navigation Bar -->
+    <include
+        android:id="@+id/nav_bar"
+        layout="@layout/activity_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
