@@ -5,11 +5,13 @@ import android.os.Bundle
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.mycarmanager.R
 import com.example.mycarmanager.ui.auth.RegistrazioneActivity
 import com.example.mycarmanager.ui.auto.CensimentoAutoActivity
+import com.example.mycarmanager.ui.schedaAuto.SchedaAutoActivity
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
 
 class HomeActivity : AppCompatActivity() {
@@ -32,5 +34,9 @@ class HomeActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        findViewById<ConstraintLayout>(R.id.clVeicolo)?.setOnClickListener {
+            val intent = Intent(this, SchedaAutoActivity::class.java)
+            startActivity(intent)
+        }
     }
 }
