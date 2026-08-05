@@ -13,6 +13,7 @@ import androidx.credentials.CredentialManager
 import androidx.credentials.GetCredentialRequest
 import com.example.mycarmanager.R
 import com.example.mycarmanager.ui.home.HomeActivity
+import com.example.mycarmanager.ui.obblighi.ObbligoActivity
 import com.google.android.libraries.identity.googleid.GetGoogleIdOption
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -36,6 +37,7 @@ class LoginActivity : AppCompatActivity() {
         }
 
         findViewById<Button>(R.id.btnAccedi)?.setOnClickListener {
+            //codice da modificare per testing (sostituire HomeActivity con la Activity da testare)
             val intent = Intent(this, HomeActivity::class.java)
             startActivity(intent)
             finish()
