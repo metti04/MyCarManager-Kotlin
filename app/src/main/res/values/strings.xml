@@ -35,4 +35,6 @@
     <string name="imminenti">imminenti</string>
     <string name="data_pagamento">Data Pagamento</string>
     <string name="data_scadenza">Data Scadenza</string>
+    <string name="spese">Spese</string>
+    <string name="scadenze">Scadenze</string>
 </resources>
