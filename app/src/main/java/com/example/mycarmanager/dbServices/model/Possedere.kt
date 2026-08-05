@@ -1,4 +1,8 @@
 package com.example.mycarmanager.dbServices.model
 
-class Possedere {
-}
+
+data class Possedere (
+    val targaAuto: String,
+    val usernameUtente: String,
+    val tipologia: TipologiaGestione,
+)

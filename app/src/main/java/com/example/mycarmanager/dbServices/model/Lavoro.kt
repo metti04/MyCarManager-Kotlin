@@ -1,4 +1,18 @@
 package com.example.mycarmanager.dbServices.model
 
-class Lavoro {
-}
+import java.time.LocalDate
+
+
+data class Lavoro (
+    val ID: Int,
+    val nome: String,
+    val chilometraggio: String,
+    val data: LocalDate,
+    val descrizione: String,
+    val stato: StatoLavoro,
+    val costo: Float,
+    val pathDocumento: String,
+    val intervalloTempo: Int,
+    val intervalloKm: Int,
+    val targaAuto: String,
+)
