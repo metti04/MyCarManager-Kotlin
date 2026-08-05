@@ -50,7 +50,7 @@
 
         <!-- Gestione Auto -->
         <activity
-            android:name=".ui.auto.CenstemntoAutoActivity"
+            android:name=".ui.auto.CensimentoAutoActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
 

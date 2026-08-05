@@ -140,6 +140,22 @@
         tools:listitem="@layout/item_auto"
         app:layout_constraintTop_toBottomOf="@id/tvVeicoli"
         app:layout_constraintBottom_toTopOf="@id/nb" />
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/efabAddVeicolo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:backgroundTint="@color/Blu"
+        android:text="Aggiungi Veicolo"
+        android:textColor="@color/Bianco"
+        app:icon="@android:drawable/ic_input_add"
+        app:iconTint="@color/Bianco"
+        app:iconGravity="textStart"
+        app:layout_constraintBottom_toTopOf="@id/nb"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:tint="@color/Bianco" />
+
     <include
         android:id="@+id/nb"
         layout="@layout/activity_main"

@@ -1,11 +1,16 @@
 package com.example.mycarmanager.ui.home
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.mycarmanager.R
+import com.example.mycarmanager.ui.auth.RegistrazioneActivity
+import com.example.mycarmanager.ui.auto.CensimentoAutoActivity
+import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
 
 class HomeActivity : AppCompatActivity() {
 
@@ -20,6 +25,11 @@ class HomeActivity : AppCompatActivity() {
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
+        }
+
+        findViewById<ExtendedFloatingActionButton>(R.id.efabAddVeicolo)?.setOnClickListener {
+            val intent = Intent(this, CensimentoAutoActivity::class.java)
+            startActivity(intent)
         }
 
     }
