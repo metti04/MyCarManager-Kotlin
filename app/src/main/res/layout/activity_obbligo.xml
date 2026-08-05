@@ -53,87 +53,9 @@
                     android:textColorHint="@color/Blu" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <!-- comboBox e data-->
-
-
             <!-- Data Pagamento -->
-            <!-- Container for Text Box + Button + Expandable Calendar -->
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <!-- Date Input Field -->
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/tilSelectedDate"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="2dp"
-                    android:textColorHint="@color/Blu"
-                    app:boxStrokeColor="@color/Blu"
-                    app:hintTextColor="@color/Blu"
-                    app:boxCornerRadiusBottomEnd="25dp"
-                    app:boxCornerRadiusBottomStart="25dp"
-                    app:boxCornerRadiusTopEnd="25dp"
-                    app:boxCornerRadiusTopStart="25dp"
-
-                    tools:ignore="MissingConstraints">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/txSelectedDate"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:clickable="false"
-                        android:focusable="false"
-                        android:hint="@string/data_pagamento"
-                        android:textColor="@color/Blu"
-                        android:textColorHint="@color/Blu" />
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <!-- Calendar Toggle Button -->
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnToggleCalendar"
-                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                    android:layout_width="60dp"
-                    android:layout_height="match_parent"
-                    android:padding="18dp"
-                    app:cornerRadius="10dp"
-                    app:icon="@android:drawable/ic_menu_my_calendar"
-                    app:iconPadding="18dp"
-                    app:iconTint="@color/Blu"
-                    app:strokeColor="@color/Blu"
-                    app:layout_constraintBottom_toBottomOf="@id/tilSelectedDate"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@id/tilSelectedDate" />
-
-                <!-- Expandable Sublayout containing CalendarView -->
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/calendarContainer"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:visibility="gone"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tilSelectedDate">
-
-                    <CalendarView
-                        android:id="@+id/calendarView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <!-- Data Scadenza -->
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/tilDataScadenza"
+                android:id="@+id/txdatapagamento"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -146,12 +68,41 @@
                 app:boxCornerRadiusTopEnd="25dp"
                 app:boxCornerRadiusTopStart="25dp">
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/txDataScadenza"
+                    android:id="@+id/etDataPagamento"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/data_scadenza"
                     android:textColor="@color/Blu"
-                    android:textColorHint="@color/Blu" />
+                    android:textColorHint="@color/Blu"
+                    android:hint="@string/data_pagamento"
+                    android:focusable="false"
+                    android:clickable="true"
+                    android:inputType="none" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Data Scadenza -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/txdatascadenza"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="2dp"
+                android:textColorHint="@color/Blu"
+                app:boxStrokeColor="@color/Blu"
+                app:hintTextColor="@color/Blu"
+                app:boxCornerRadiusBottomEnd="25dp"
+                app:boxCornerRadiusBottomStart="25dp"
+                app:boxCornerRadiusTopEnd="25dp"
+                app:boxCornerRadiusTopStart="25dp">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etDataScadenza"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/Blu"
+                    android:textColorHint="@color/Blu"
+                    android:hint="@string/data_scadenza"
+                    android:focusable="false"
+                    android:clickable="true"
+                    android:inputType="none" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <!-- Costo -->
