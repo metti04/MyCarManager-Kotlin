@@ -35,6 +35,7 @@
         app:cardBackgroundColor="@color/Bianco"
         app:cardCornerRadius="40dp"
         app:cardElevation="0dp"
+        android:layout_marginBottom="-60dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/llheader">
 

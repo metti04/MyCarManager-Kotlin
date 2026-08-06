@@ -8,9 +8,11 @@ import android.widget.Button
 import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.SystemBarStyle
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.Lifecycle
@@ -35,14 +37,30 @@ class RegistrazioneActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        // Abilita la modalità Edge-to-Edge per far estendere il layout sotto le barre di sistema
-        enableEdgeToEdge()
+        // Abilita la modalità Edge-to-Edge configurando il colore della barra di navigazione uguale allo sfondo (Blu)
+        enableEdgeToEdge(
+            navigationBarStyle = SystemBarStyle.light(
+                ContextCompat.getColor(this, R.color.Bianco),
+                ContextCompat.getColor(this, R.color.Bianco)
+            )
+        )
         setContentView(R.layout.activity_registrazione)
 
         // Gestione dei padding per evitare che il contenuto finisca sotto la barra di stato o di navigazione
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.clregistrazione)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            val ime = insets.getInsets(WindowInsetsCompat.Type.ime())
+            
+            // Applichiamo solo il padding superiore al root (per la barra di stato blu)
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, 0)
+            
+            // Applichiamo il padding inferiore al contenuto bianco (per la tastiera e nav bar)
+            findViewById<View>(R.id.llFormRegistrazione).setPadding(
+                24,
+                24,
+                24,
+                systemBars.bottom + ime.bottom + 100
+            )
             insets
         }
 

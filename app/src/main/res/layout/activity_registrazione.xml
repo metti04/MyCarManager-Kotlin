@@ -45,6 +45,7 @@
             android:paddingBottom="40dp">
 
             <LinearLayout
+                android:id="@+id/llFormRegistrazione"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
