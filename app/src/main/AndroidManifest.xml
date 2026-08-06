@@ -38,46 +38,6 @@
 
         <!-- Home e Sezioni Principali -->
 
-
-        <activity
-            android:name=".ui.profilo.ProfiloUtenteActivity"
-            android:exported="false"
-            android:windowSoftInputMode="adjustResize" />
-
-        <activity
-            android:name=".ui.profilo.ModificaDatiUtenteActivity"
-            android:exported="false"
-            android:windowSoftInputMode="adjustResize" />
-
-        <!-- Gestione Auto -->
-        <activity
-            android:name=".ui.auto.CensimentoAutoFragment"
-            android:exported="false"
-            android:windowSoftInputMode="adjustResize" />
-
-        <activity
-            android:name=".ui.schedaAuto.SchedaAutoActivity"
-            android:exported="false"
-            android:windowSoftInputMode="adjustResize" />
-
-        <!-- Spese, Scadenze e Lavori -->
-
-
-        <activity
-            android:name=".ui.scadenze.ScadenzeAutoCensiteActivity"
-            android:exported="false"
-            android:windowSoftInputMode="adjustResize" />
-
-        <activity
-            android:name=".ui.lavori.LavoroActivity"
-            android:exported="false"
-            android:windowSoftInputMode="adjustResize" />
-
-        <activity
-            android:name=".ui.obblighi.ObbligoActivity"
-            android:exported="false"
-            android:windowSoftInputMode="adjustResize" />
-
     </application>
 
 </manifest>
