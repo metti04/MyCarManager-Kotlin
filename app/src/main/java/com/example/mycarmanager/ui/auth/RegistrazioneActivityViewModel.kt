@@ -1,12 +1,19 @@
 package com.example.mycarmanager.ui.auth
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import kotlinx.coroutines.delay
+import com.example.mycarmanager.dbServices.data.UtenteDbServices
+import com.example.mycarmanager.dbServices.model.Utente
+import com.example.mycarmanager.dbServices.supabase.SupabaseInstance
+import io.github.jan.supabase.auth.auth
+import io.github.jan.supabase.auth.providers.builtin.Email
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 
 /**
  * Rappresenta i possibili stati della schermata di registrazione.
@@ -59,13 +66,38 @@ class RegistrazioneActivityViewModel : ViewModel() {
             // Imposta lo stato su Loading per informare la UI
             _uiState.value = RegistrationUiState.Loading
             
-            // Simulazione di una chiamata di rete o database (es. 2 secondi)
-            delay(2000)
-            
-            // TODO: Inserire qui la logica reale (integrazione con Firebase o API Server)
-            
-            // Se tutto va a buon fine, imposta lo stato su Success
-            _uiState.value = RegistrationUiState.Success
+            try {
+                // Parsing della data selezionata (dd/MM/yyyy -> LocalDate)
+                val formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy")
+                val localDate = LocalDate.parse(data, formatter)
+
+                // Creiamo l'oggetto Utente per il database
+                val nuovoUtente = Utente(
+                    username = user,
+                    password = pass,
+                    email = email,
+                    nome = nome,
+                    cognome = cognome,
+                    dataDiNascita = localDate
+                )
+
+                // 1. Creiamo l'account in Supabase Auth
+                SupabaseInstance.client.auth.signUpWith(Email) {
+                    this.email = email
+                    this.password = pass
+                }
+
+                // 2. Inseriamo i dettagli dell'utente nella nostra tabella personalizzata
+                val dbService = UtenteDbServices()
+                dbService.inserisciUtente(nuovoUtente)
+
+                // Se tutto va a buon fine, imposta lo stato su Success
+                _uiState.value = RegistrationUiState.Success
+            } catch (e: Exception) {
+                // In caso di errore (es. email già esistente o problema di rete)
+                Log.d("Registazione", "Errore durante la registrazione: ${e.message}")
+                _uiState.value = RegistrationUiState.Error("Errore durante la registrazione: ${e.message}")
+            }
         }
     }
 

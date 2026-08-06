@@ -13,6 +13,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import com.example.mycarmanager.databinding.ActivityMainBinding
 import com.example.mycarmanager.ui.auth.LoginActivity
+import com.example.mycarmanager.ui.home.HomeActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -22,6 +23,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         // Attiva la modalità edge-to-edge
         enableEdgeToEdge()
-        startActivity(Intent(this@MainActivity, LoginActivity::class.java))
+        startActivity(Intent(this@MainActivity, HomeActivity::class.java))
         }
 }

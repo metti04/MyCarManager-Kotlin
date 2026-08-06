@@ -49,7 +49,7 @@ class RegistrazioneActivity : AppCompatActivity() {
         // Configura gli elementi grafici e i listener
         setupUI()
         // Inizia l'osservazione dello stato del ViewModel
-        observeViewModel()
+        observeRegistrazione()
     }
 
     /**
@@ -93,7 +93,7 @@ class RegistrazioneActivity : AppCompatActivity() {
      * Osserva lo stato (UiState) esposto dal ViewModel e reagisce ai cambiamenti.
      * Utilizza lifecycleScope per gestire correttamente il ciclo di vita della Coroutine.
      */
-    private fun observeViewModel() {
+    private fun observeRegistrazione() {
         lifecycleScope.launch {
             // repeatOnLifecycle assicura che il Flow venga ascoltato solo quando l'Activity è visibile (in stato STARTED)
             repeatOnLifecycle(Lifecycle.State.STARTED) {
