@@ -37,10 +37,7 @@
             android:windowSoftInputMode="adjustResize" />
 
         <!-- Home e Sezioni Principali -->
-        <activity
-            android:name=".ui.home.HomeActivity"
-            android:exported="false"
-            android:windowSoftInputMode="adjustResize" />
+
 
         <activity
             android:name=".ui.profilo.ProfiloUtenteActivity"
@@ -64,10 +61,7 @@
             android:windowSoftInputMode="adjustResize" />
 
         <!-- Spese, Scadenze e Lavori -->
-        <activity
-            android:name=".ui.spese.SpeseAutoCensiteActivity"
-            android:exported="false"
-            android:windowSoftInputMode="adjustResize" />
+
 
         <activity
             android:name=".ui.scadenze.ScadenzeAutoCensiteActivity"

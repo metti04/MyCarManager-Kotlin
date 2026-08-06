@@ -8,9 +8,9 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.mycarmanager.MainActivity
 import com.example.mycarmanager.R
 import com.example.mycarmanager.ui.auth.RegistrazioneActivity
-import com.example.mycarmanager.ui.home.HomeActivity
 
 class CensimentoAutoActivity : AppCompatActivity() {
 
@@ -26,7 +26,7 @@ class CensimentoAutoActivity : AppCompatActivity() {
         }
 
         findViewById<Button>(R.id.btnAnnulla)?.setOnClickListener {
-            val intent = Intent(this, HomeActivity::class.java)
+            val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
     }

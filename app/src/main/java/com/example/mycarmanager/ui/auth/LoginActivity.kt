@@ -23,7 +23,7 @@ import androidx.lifecycle.repeatOnLifecycle
 import com.example.mycarmanager.MainActivity
 import com.example.mycarmanager.R
 import com.example.mycarmanager.dbServices.supabase.SupabaseInstance
-import com.example.mycarmanager.ui.home.HomeActivity
+import com.example.mycarmanager.ui.home.HomeFragment
 import com.google.android.libraries.identity.googleid.GetGoogleIdOption
 import com.google.android.libraries.identity.googleid.GoogleIdTokenCredential
 import io.github.jan.supabase.auth.auth
@@ -123,7 +123,7 @@ class LoginActivity : AppCompatActivity() {
                         }
                         is LoginUiState.Success -> {
                             Toast.makeText(this@LoginActivity, "Accesso effettuato!", Toast.LENGTH_SHORT).show()
-                            startActivity(Intent(this@LoginActivity, HomeActivity::class.java))
+                            startActivity(Intent(this@LoginActivity, MainActivity::class.java))
                             finish()
                         }
                         is LoginUiState.Error -> {

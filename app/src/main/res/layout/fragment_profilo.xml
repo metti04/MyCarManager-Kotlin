@@ -12,8 +12,6 @@
         android:id="@+id/headerProfiloUtente"
         layout="@layout/item_headerblu" />
 
-
-
     <!--Bottone Logout-->
     <Button
         android:id="@+id/btnLogout"
@@ -141,12 +139,5 @@
 
     </androidx.cardview.widget.CardView>
 
-    <!--includo la navbar-->
-    <include
-        android:id="@+id/nb"
-        layout="@layout/activity_main"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

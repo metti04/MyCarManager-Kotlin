@@ -17,10 +17,10 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import com.example.mycarmanager.MainActivity
 import com.example.mycarmanager.R
-import com.example.mycarmanager.ui.home.HomeActivity
-import com.example.mycarmanager.ui.scadenze.ScadenzeAutoCensiteActivity
-import com.example.mycarmanager.ui.spese.SpeseAutoCensiteActivity
+import com.example.mycarmanager.ui.scadenze.ScadenzeAutoCensiteFragment
+import com.example.mycarmanager.ui.spese.SpeseAutoCensiteFragment
 import com.google.android.material.textfield.TextInputEditText
 import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
@@ -61,22 +61,22 @@ class ModificaDatiUtenteActivity : AppCompatActivity() {
         val navbar = findViewById<View>(R.id.nb)
         
         navbar.findViewById<LinearLayout>(R.id.llgarage).setOnClickListener {
-            startActivity(Intent(this, HomeActivity::class.java))
+            startActivity(Intent(this, MainActivity::class.java))
             finish()
         }
 
         navbar.findViewById<LinearLayout>(R.id.llspese).setOnClickListener {
-            startActivity(Intent(this, SpeseAutoCensiteActivity::class.java))
+            startActivity(Intent(this, SpeseAutoCensiteFragment::class.java))
             finish()
         }
 
         navbar.findViewById<LinearLayout>(R.id.llscadenze).setOnClickListener {
-            startActivity(Intent(this, ScadenzeAutoCensiteActivity::class.java))
+            startActivity(Intent(this, ScadenzeAutoCensiteFragment::class.java))
             finish()
         }
 
         navbar.findViewById<LinearLayout>(R.id.llprofilo).setOnClickListener {
-            startActivity(Intent(this, ProfiloUtenteActivity::class.java))
+            startActivity(Intent(this, ProfiloFragment::class.java))
             finish()
         }
     }

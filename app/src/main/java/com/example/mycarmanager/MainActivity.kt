@@ -1,33 +1,49 @@
 package com.example.mycarmanager
 
-import android.content.Intent
+import com.example.mycarmanager.ui.home.HomeFragment
 import android.os.Bundle
-import android.widget.ImageView
-import android.widget.TextView
-import androidx.activity.enableEdgeToEdge
+import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
-import com.example.mycarmanager.databinding.ActivityMainBinding
-import com.example.mycarmanager.ui.auth.LoginActivity
-import com.example.mycarmanager.ui.home.HomeActivity
-import io.github.jan.supabase.auth.auth
-import kotlinx.serialization.json.contentOrNull
-import kotlinx.serialization.json.jsonPrimitive
+
+import com.example.mycarmanager.R
+import com.example.mycarmanager.ui.profilo.ProfiloFragment
+import com.example.mycarmanager.ui.scadenze.ScadenzeAutoCensiteFragment
+import com.example.mycarmanager.ui.spese.SpeseAutoCensiteFragment
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityMainBinding
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        // Attiva la modalità edge-to-edge
-        enableEdgeToEdge()
-        startActivity(Intent(this@MainActivity, LoginActivity::class.java))
+        setContentView(R.layout.activity_main)
+
+        // Load HomeFragment by default on launch
+        if (savedInstanceState == null) {
+            replaceFragment(HomeFragment())
         }
 
+        // Navigation Click Listeners
+        findViewById<LinearLayout>(R.id.llgarage).setOnClickListener {
+            replaceFragment(HomeFragment())
+        }
 
+        findViewById<LinearLayout>(R.id.llspese).setOnClickListener {
+            replaceFragment(SpeseAutoCensiteFragment())
+        }
+
+        findViewById<LinearLayout>(R.id.llscadenze).setOnClickListener {
+            replaceFragment(ScadenzeAutoCensiteFragment())
+        }
+
+        findViewById<LinearLayout>(R.id.llprofilo).setOnClickListener {
+            replaceFragment(ProfiloFragment())
+        }
+    }
+
+    // Helper function to swap fragments programmatically
+    private fun replaceFragment(fragment: Fragment) {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragment_container, fragment)
+            .commit()
+    }
 }
