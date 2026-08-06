@@ -86,11 +86,11 @@ class RegistrazioneActivityViewModel : ViewModel() {
                     this.email = email
                     this.password = pass
                 }
-
+                Log.d("Utente", "sei dow", Exception("Nome utente: ${nuovoUtente.toString()}"))
                 // 2. Inseriamo i dettagli dell'utente nella nostra tabella personalizzata
                 val dbService = UtenteDbServices()
                 dbService.inserisciUtente(nuovoUtente)
-
+                Log.d("Utente", "sei dow", Exception("Nome utente: ${dbService.toString()}"))
                 // Se tutto va a buon fine, imposta lo stato su Success
                 _uiState.value = RegistrationUiState.Success
             } catch (e: Exception) {

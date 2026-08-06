@@ -1,5 +1,6 @@
 package com.example.mycarmanager.ui.auth
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.mycarmanager.dbServices.supabase.SupabaseInstance
@@ -33,15 +34,17 @@ class LoginActivityViewModel : ViewModel() {
 
         viewModelScope.launch {
             _uiState.value = LoginUiState.Loading
-            /*try {
+            try {
                 SupabaseInstance.client.auth.signInWith(Email) {
+                    this.email = email.trim()
                     this.email = email
                     this.password = pass
                 }
                 _uiState.value = LoginUiState.Success
             } catch (e: Exception) {
                 _uiState.value = LoginUiState.Error("Accesso fallito: ${e.message}")
-            }*/_uiState.value = LoginUiState.Success
+                Log.d("LoginActivityViewModel", "Accesso fallito: ${e.message}")
+            }
         }
     }
 

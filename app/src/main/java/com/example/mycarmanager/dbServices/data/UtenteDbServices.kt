@@ -28,6 +28,15 @@ class UtenteDbServices {
             .decodeSingleOrNull<Utente>()
     }
 
+    // funzione di get per prendere un utente tramite email
+    suspend fun getUtenteByEmail(email: String): Utente? {
+        return client.from("Utenti")
+            .select {
+                filter { eq("email", email) }
+            }
+            .decodeSingleOrNull<Utente>()
+    }
+
     //funzione di inserimento di un utente su db
     suspend fun inserisciUtente(utente: Utente) {
         client.from("Utenti").insert(utente)

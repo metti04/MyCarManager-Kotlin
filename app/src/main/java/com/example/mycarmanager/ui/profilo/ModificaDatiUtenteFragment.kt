@@ -28,7 +28,7 @@ import java.time.format.DateTimeFormatter
 import java.util.*
 
 // Activity che gestisce la schermata di modifica dei dati personali dell'utente.
-class ModificaDatiUtenteActivity : AppCompatActivity() {
+class ModificaDatiUtenteFragment : AppCompatActivity() {
 
     private val viewModel: ModificaDatiUtenteActivityViewModel by viewModels()
 
@@ -127,11 +127,11 @@ class ModificaDatiUtenteActivity : AppCompatActivity() {
                             findViewById<TextInputEditText>(R.id.txDataNascita).setText(u.dataDiNascita.format(formatter))
                         }
                         is EditProfileUiState.Success -> {
-                            Toast.makeText(this@ModificaDatiUtenteActivity, "Dati aggiornati!", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this@ModificaDatiUtenteFragment, "Dati aggiornati!", Toast.LENGTH_SHORT).show()
                             finish()
                         }
                         is EditProfileUiState.Error -> {
-                            Toast.makeText(this@ModificaDatiUtenteActivity, state.message, Toast.LENGTH_LONG).show()
+                            Toast.makeText(this@ModificaDatiUtenteFragment, state.message, Toast.LENGTH_LONG).show()
                             viewModel.resetState()
                         }
                         else -> {}

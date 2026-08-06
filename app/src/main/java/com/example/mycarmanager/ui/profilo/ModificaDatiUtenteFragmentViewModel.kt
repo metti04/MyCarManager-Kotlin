@@ -42,8 +42,8 @@ class ModificaDatiUtenteActivityViewModel : ViewModel() {
             try {
                 val user = SupabaseInstance.client.auth.currentUserOrNull()
                 if (user != null) {
-                    val username = user.email?.substringBefore("@") ?: ""
-                    val utente = dbService.getUtente(username)
+                    val email = user.email ?: ""
+                    val utente = dbService.getUtenteByEmail(email)
                     if (utente != null) {
                         _uiState.value = EditProfileUiState.Loaded(utente)
                     } else {

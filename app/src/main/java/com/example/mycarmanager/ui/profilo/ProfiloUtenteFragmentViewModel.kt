@@ -1,5 +1,6 @@
 package com.example.mycarmanager.ui.profilo
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.mycarmanager.dbServices.data.UtenteDbServices
@@ -39,10 +40,12 @@ class ProfiloUtenteActivityViewModel : ViewModel() {
             _uiState.value = ProfileUiState.Loading
             try {
                 val user = SupabaseInstance.client.auth.currentUserOrNull()
+                Log.d("Utente","Do sta sto stronzo", Exception("Nome utente: ${user.toString()}"))
+
                 if (user != null) {
-                    val username = user.email?.substringBefore("@") ?: ""
-                    val utente = dbService.getUtente(username)
-                    
+                    val email = user.email ?: ""
+                    val utente = dbService.getUtenteByEmail(email)
+                    Log.d("Utente","Do sta sto stronzo", Exception("Nome utente: ${utente.toString()}"))
                     if (utente != null) {
                         _uiState.value = ProfileUiState.Success(utente)
                     } else {
