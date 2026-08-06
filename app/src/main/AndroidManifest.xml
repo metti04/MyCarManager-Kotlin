@@ -51,7 +51,7 @@
 
         <!-- Gestione Auto -->
         <activity
-            android:name=".ui.auto.CensimentoAutoActivity"
+            android:name=".ui.auto.CensimentoAutoFragment"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
 

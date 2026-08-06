@@ -251,7 +251,7 @@
         android:orientation="horizontal"
         android:weightSum="2"
         android:padding="20dp"
-        app:layout_constraintBottom_toTopOf="@id/nav_bar">
+        app:layout_constraintBottom_toBottomOf="parent">
 
         <Button
             android:id="@+id/btnAnnulla"
@@ -281,12 +281,6 @@
 
     </LinearLayout>
 
-    <!-- Navigation Bar -->
-    <include
-        android:id="@+id/nav_bar"
-        layout="@layout/activity_main"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
