@@ -6,16 +6,19 @@ import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 
-import com.example.mycarmanager.R
-import com.example.mycarmanager.ui.profilo.ProfiloFragment
+import com.example.mycarmanager.ui.profilo.ProfiloUtenteFragment
 import com.example.mycarmanager.ui.scadenze.ScadenzeAutoCensiteFragment
 import com.example.mycarmanager.ui.spese.SpeseAutoCensiteFragment
 
 class MainActivity : AppCompatActivity() {
 
+    private var userEmail: String? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        userEmail = intent.getStringExtra("USER_EMAIL")
 
         // Load HomeFragment by default on launch
         if (savedInstanceState == null) {
@@ -36,7 +39,12 @@ class MainActivity : AppCompatActivity() {
         }
 
         findViewById<LinearLayout>(R.id.llprofilo).setOnClickListener {
-            replaceFragment(ProfiloFragment())
+            val profiloFragment = ProfiloUtenteFragment().apply {
+                arguments = Bundle().apply {
+                    putString("USER_EMAIL", userEmail)
+                }
+            }
+            replaceFragment(profiloFragment)
         }
     }
 

@@ -3,6 +3,8 @@ package com.example.mycarmanager.ui.auth
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.mycarmanager.dbServices.data.UtenteDbServices
+import com.example.mycarmanager.dbServices.model.Utente
 import com.example.mycarmanager.dbServices.supabase.SupabaseInstance
 import io.github.jan.supabase.auth.auth
 import io.github.jan.supabase.auth.providers.Google
@@ -16,7 +18,7 @@ import kotlinx.coroutines.launch
 sealed class LoginUiState {
     object Idle : LoginUiState()
     object Loading : LoginUiState()
-    object Success : LoginUiState()
+    data class Success(val email: String) : LoginUiState()
     data class Error(val message: String) : LoginUiState()
 }
 
@@ -35,12 +37,14 @@ class LoginActivityViewModel : ViewModel() {
         viewModelScope.launch {
             _uiState.value = LoginUiState.Loading
             try {
-                SupabaseInstance.client.auth.signInWith(Email) {
-                    this.email = email.trim()
-                    this.email = email
-                    this.password = pass
+                val dbService = UtenteDbServices()
+                val utente = dbService.getUtenteByEmail(email.trim())
+                
+                if (utente != null && utente.password == pass) {
+                    _uiState.value = LoginUiState.Success(email.trim())
+                } else {
+                    _uiState.value = LoginUiState.Error("Email o Password errati")
                 }
-                _uiState.value = LoginUiState.Success
             } catch (e: Exception) {
                 _uiState.value = LoginUiState.Error("Accesso fallito: ${e.message}")
                 Log.d("LoginActivityViewModel", "Accesso fallito: ${e.message}")
@@ -56,7 +60,23 @@ class LoginActivityViewModel : ViewModel() {
                     idToken = token
                     provider = Google
                 }
-                _uiState.value = LoginUiState.Success
+
+                /*// Creiamo l'oggetto Utente per il database
+                val nuovoUtente = Utente(
+                    username = user,
+                    password = pass,
+                    email = email,
+                    nome = nome,
+                    cognome = cognome,
+                    dataDiNascita = localDate
+                )
+
+                // Inseriamo i dettagli dell'utente
+                val dbService = UtenteDbServices()
+                dbService.inserisciUtente(nuovoUtente)
+*/              val user = SupabaseInstance.client.auth.currentUserOrNull()
+                val email = user?.email ?: ""
+                _uiState.value = LoginUiState.Success(email)
             } catch (e: Exception) {
                 _uiState.value = LoginUiState.Error("Errore Google: ${e.message}")
             }

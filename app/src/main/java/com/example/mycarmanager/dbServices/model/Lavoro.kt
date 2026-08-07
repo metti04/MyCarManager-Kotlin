@@ -1,8 +1,9 @@
 package com.example.mycarmanager.dbServices.model
 
-import java.time.LocalDate
+import kotlinx.serialization.Serializable
+import kotlinx.datetime.LocalDate
 
-
+@Serializable
 data class Lavoro (
     val ID: Int,
     val nome: String,

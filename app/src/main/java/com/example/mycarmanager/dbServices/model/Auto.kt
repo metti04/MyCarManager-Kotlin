@@ -1,5 +1,8 @@
 package com.example.mycarmanager.dbServices.model
 
+import kotlinx.serialization.Serializable
+
+@Serializable
 data class Auto(
     val targa: String,
     val modello: String,

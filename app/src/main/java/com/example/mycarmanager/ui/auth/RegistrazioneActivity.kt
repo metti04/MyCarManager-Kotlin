@@ -126,7 +126,9 @@ class RegistrazioneActivity : AppCompatActivity() {
                         is RegistrationUiState.Success -> {
                             // Registrazione avvenuta con successo: feedback e chiusura schermata
                             Toast.makeText(this@RegistrazioneActivity, "Registrazione completata!", Toast.LENGTH_SHORT).show()
-                            startActivity(Intent(this@RegistrazioneActivity, MainActivity::class.java))
+                            val intent = Intent(this@RegistrazioneActivity, MainActivity::class.java)
+                            intent.putExtra("USER_EMAIL", state.email)
+                            startActivity(intent)
                             finish()
                         }
                         is RegistrationUiState.Error -> {

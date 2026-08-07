@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
-import java.time.LocalDate
+import kotlinx.datetime.toKotlinLocalDate
 import java.time.format.DateTimeFormatter
 
 // Stati possibili per la UI di modifica profilo.
@@ -22,8 +22,10 @@ sealed class EditProfileUiState {
     data class Error(val message: String) : EditProfileUiState()
 }
 
-// ViewModel per la gestione della modifica dei dati utente.
-// Si occupa del caricamento dei dati attuali e del salvataggio delle modifiche.
+/**
+ * ViewModel per la gestione della modifica dei dati utente.
+ * Implementa la logica di business per caricare i dati attuali e salvare le nuove informazioni.
+ */
 class ModificaDatiUtenteActivityViewModel : ViewModel() {
 
     private val _uiState = MutableStateFlow<EditProfileUiState>(EditProfileUiState.Idle)
@@ -31,27 +33,29 @@ class ModificaDatiUtenteActivityViewModel : ViewModel() {
 
     private val dbService = UtenteDbServices()
 
-    init {
-        caricaDatiAttuali()
-    }
-
-    // Carica i dati attuali dell'utente per pre-popolare i campi di modifica.
-    private fun caricaDatiAttuali() {
+    // Carica i dati dell'utente dal database per pre-popolare i campi di modifica.
+    // Riceve l'email passata dal Fragment per coerenza con il sistema di navigazione basato su Intent/Bundle.
+    fun caricaDatiAttuali(emailPassata: String?) {
         viewModelScope.launch {
             _uiState.value = EditProfileUiState.Loading
             try {
-                val user = SupabaseInstance.client.auth.currentUserOrNull()
-                if (user != null) {
-                    val email = user.email ?: ""
+                // Tentiamo di usare l'email passata (metodo manuale), 
+                // con un fallback sulla sessione di Supabase se necessario.
+                val email = emailPassata ?: SupabaseInstance.client.auth.currentUserOrNull()?.email
+                
+                if (!email.isNullOrBlank()) {
                     val utente = dbService.getUtenteByEmail(email)
                     if (utente != null) {
+                        // Stato 'Loaded': i dati sono pronti per essere mostrati nella UI
                         _uiState.value = EditProfileUiState.Loaded(utente)
                     } else {
-                        _uiState.value = EditProfileUiState.Error("Utente non trovato")
+                        _uiState.value = EditProfileUiState.Error("Utente non trovato nel database")
                     }
+                } else {
+                    _uiState.value = EditProfileUiState.Error("Email non disponibile")
                 }
             } catch (e: Exception) {
-                _uiState.value = EditProfileUiState.Error("Errore: ${e.message}")
+                _uiState.value = EditProfileUiState.Error("Errore nel caricamento dati: ${e.message}")
             }
         }
     }
@@ -68,7 +72,7 @@ class ModificaDatiUtenteActivityViewModel : ViewModel() {
             _uiState.value = EditProfileUiState.Loading
             try {
                 val formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy")
-                val localDate = LocalDate.parse(data, formatter)
+                val localDate = java.time.LocalDate.parse(data, formatter).toKotlinLocalDate()
 
                 val utenteAggiornato = Utente(
                     username = user,

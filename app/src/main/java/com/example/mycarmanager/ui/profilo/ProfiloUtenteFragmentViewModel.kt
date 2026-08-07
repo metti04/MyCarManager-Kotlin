@@ -3,9 +3,11 @@ package com.example.mycarmanager.ui.profilo
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.mycarmanager.MainActivity
 import com.example.mycarmanager.dbServices.data.UtenteDbServices
 import com.example.mycarmanager.dbServices.model.Utente
 import com.example.mycarmanager.dbServices.supabase.SupabaseInstance
+import com.example.mycarmanager.ui.home.HomeFragment
 import io.github.jan.supabase.auth.auth
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -31,28 +33,24 @@ class ProfiloUtenteActivityViewModel : ViewModel() {
     private val dbService = UtenteDbServices()
 
     init {
-        caricaDatiUtente()
+        // Il caricamento verrà avviato dal Fragment passando l'email
     }
 
-    // Carica i dati dell'utente loggato dal database Supabase.
-    fun caricaDatiUtente() {
+    // Carica i dati dell'utente dal database usando l'email fornita.
+    fun caricaDatiUtente(email: String?) {
+        if (email.isNullOrBlank()) {
+            _uiState.value = ProfileUiState.Error("Email utente non disponibile")
+            return
+        }
+
         viewModelScope.launch {
             _uiState.value = ProfileUiState.Loading
             try {
-                val user = SupabaseInstance.client.auth.currentUserOrNull()
-                Log.d("Utente","Do sta sto stronzo", Exception("Nome utente: ${user.toString()}"))
-
-                if (user != null) {
-                    val email = user.email ?: ""
-                    val utente = dbService.getUtenteByEmail(email)
-                    Log.d("Utente","Do sta sto stronzo", Exception("Nome utente: ${utente.toString()}"))
-                    if (utente != null) {
-                        _uiState.value = ProfileUiState.Success(utente)
-                    } else {
-                        _uiState.value = ProfileUiState.Error("Dati utente non trovati nel database")
-                    }
+                val utente = dbService.getUtenteByEmail(email)
+                if (utente != null) {
+                    _uiState.value = ProfileUiState.Success(utente)
                 } else {
-                    _uiState.value = ProfileUiState.Error("Utente non autenticato")
+                    _uiState.value = ProfileUiState.Error("Dati utente non trovati nel database")
                 }
             } catch (e: Exception) {
                 _uiState.value = ProfileUiState.Error("Errore caricamento: ${e.message}")

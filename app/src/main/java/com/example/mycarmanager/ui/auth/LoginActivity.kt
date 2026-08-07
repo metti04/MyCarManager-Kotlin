@@ -123,7 +123,9 @@ class LoginActivity : AppCompatActivity() {
                         }
                         is LoginUiState.Success -> {
                             Toast.makeText(this@LoginActivity, "Accesso effettuato!", Toast.LENGTH_SHORT).show()
-                            startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+                            val intent = Intent(this@LoginActivity, MainActivity::class.java)
+                            intent.putExtra("USER_EMAIL", state.email)
+                            startActivity(intent)
                             finish()
                         }
                         is LoginUiState.Error -> {

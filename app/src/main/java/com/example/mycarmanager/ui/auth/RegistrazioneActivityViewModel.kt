@@ -12,7 +12,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
-import java.time.LocalDate
+import kotlinx.datetime.toKotlinLocalDate
 import java.time.format.DateTimeFormatter
 
 /**
@@ -25,7 +25,7 @@ import java.time.format.DateTimeFormatter
 sealed class RegistrationUiState {
     object Idle : RegistrationUiState()
     object Loading : RegistrationUiState()
-    object Success : RegistrationUiState()
+    data class Success(val email: String) : RegistrationUiState()
     data class Error(val message: String) : RegistrationUiState()
 }
 
@@ -69,7 +69,7 @@ class RegistrazioneActivityViewModel : ViewModel() {
             try {
                 // Parsing della data selezionata (dd/MM/yyyy -> LocalDate)
                 val formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy")
-                val localDate = LocalDate.parse(data, formatter)
+                val localDate = java.time.LocalDate.parse(data, formatter).toKotlinLocalDate()
 
                 // Creiamo l'oggetto Utente per il database
                 val nuovoUtente = Utente(
@@ -81,18 +81,12 @@ class RegistrazioneActivityViewModel : ViewModel() {
                     dataDiNascita = localDate
                 )
 
-                // 1. Creiamo l'account in Supabase Auth
-                SupabaseInstance.client.auth.signUpWith(Email) {
-                    this.email = email
-                    this.password = pass
-                }
-                Log.d("Utente", "sei dow", Exception("Nome utente: ${nuovoUtente.toString()}"))
-                // 2. Inseriamo i dettagli dell'utente nella nostra tabella personalizzata
+                // Inseriamo i dettagli dell'utente
                 val dbService = UtenteDbServices()
                 dbService.inserisciUtente(nuovoUtente)
-                Log.d("Utente", "sei dow", Exception("Nome utente: ${dbService.toString()}"))
-                // Se tutto va a buon fine, imposta lo stato su Success
-                _uiState.value = RegistrationUiState.Success
+
+                // imposta lo stato su Success
+                _uiState.value = RegistrationUiState.Success(email.trim())
             } catch (e: Exception) {
                 // In caso di errore (es. email già esistente o problema di rete)
                 Log.d("Registazione", "Errore durante la registrazione: ${e.message}")

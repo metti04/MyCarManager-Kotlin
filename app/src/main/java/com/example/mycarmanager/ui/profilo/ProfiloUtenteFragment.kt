@@ -16,10 +16,11 @@ import androidx.lifecycle.repeatOnLifecycle
 import com.example.mycarmanager.R
 import com.example.mycarmanager.ui.auth.LoginActivity
 import kotlinx.coroutines.launch
+import kotlinx.datetime.toJavaLocalDate
 import java.time.format.DateTimeFormatter
 
 // Fragment che gestisce la visualizzazione del profilo dell'utente.
-class ProfiloFragment : Fragment() {
+class ProfiloUtenteFragment : Fragment() {
 
     private val viewModel: ProfiloUtenteActivityViewModel by viewModels()
 
@@ -34,6 +35,9 @@ class ProfiloFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         
+        val userEmail = arguments?.getString("USER_EMAIL")
+        viewModel.caricaDatiUtente(userEmail)
+
         setupButtons(view)
         osservaProfilo(view)
     }
@@ -45,11 +49,24 @@ class ProfiloFragment : Fragment() {
             viewModel.logout()
         }
 
-        // Gestione Modifica Dati
+        // Gestione passaggio alla schermata di Modifica Dati
         view.findViewById<Button>(R.id.btnModificaDati).setOnClickListener {
-            // Se vuoi restare con le Activity per la modifica:
-            val intent = Intent(requireContext(), ModificaDatiUtenteFragment::class.java)
-            startActivity(intent)
+            // Recuperiamo l'email corrente per passarla al prossimo fragment
+            val userEmail = arguments?.getString("USER_EMAIL")
+            
+            // Creiamo il nuovo fragment e iniettiamo l'email tramite un Bundle di argomenti
+            val fragment = ModificaDatiUtenteFragment().apply {
+                arguments = Bundle().apply {
+                    putString("USER_EMAIL", userEmail)
+                }
+            }
+            
+            // Eseguiamo la transazione per sostituire il fragment corrente con quello di modifica.
+            // addToBackStack permette all'utente di tornare al profilo premendo il tasto 'Indietro' del telefono.
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, fragment)
+                .addToBackStack(null)
+                .commit()
         }
     }
 
@@ -61,16 +78,18 @@ class ProfiloFragment : Fragment() {
                     when (state) {
                         is ProfileUiState.Loading -> {
                             // Qui potresti mostrare un caricamento
+
                         }
                         is ProfileUiState.Success -> {
                             val u = state.utente
+                            view.findViewById<TextView>(R.id.tvUsernameUtenteHeader).text = "${u.nome} ${u.cognome}"
                             view.findViewById<TextView>(R.id.tvUsernameUtente).text = "Username: ${u.username}"
                             view.findViewById<TextView>(R.id.tvNome).text = "Nome: ${u.nome}"
                             view.findViewById<TextView>(R.id.tvCognome).text = "Cognome: ${u.cognome}"
                             view.findViewById<TextView>(R.id.tvEmail).text = "Email: ${u.email}"
                             
                             val formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy")
-                            view.findViewById<TextView>(R.id.tvDataDiNascita).text = "Data di nascita: ${u.dataDiNascita.format(formatter)}"
+                            view.findViewById<TextView>(R.id.tvDataDiNascita).text = "Data di nascita: ${u.dataDiNascita.toJavaLocalDate().format(formatter)}"
                         }
                         is ProfileUiState.Logout -> {
                             // In caso di logout, torna alla schermata di Login
